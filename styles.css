@@ -131,9 +131,8 @@ nav a:hover {
 
 #home {
   margin: 0 auto;
-  padding: 13px;
-  min-height: 100vh;
   padding: 15px;
+  min-height: 100vh;
   position: relative;
   text-align: center;
   color: rgb(246, 246, 246);
@@ -191,11 +190,10 @@ nav a:hover {
 
 #info {
   margin: 0 auto;
-  padding: 13px;
+  padding: 15px;
   display: flex;
   align-items: center;
-  min-height: 100vh;
-  padding: 13px;
+  min-height: 70vh;
 }
 
 #info img {
@@ -262,9 +260,8 @@ nav a:hover {
 
 #fakta {
   margin: 0 auto;
-  padding: 13px;
-  min-height: 100vh;
   padding: 15px;
+  min-height: 50vh;
 }
 
 h1 {
@@ -454,12 +451,13 @@ p {
 .map {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 20px;
+  width: 100%;
 }
 
 .responsive-map {
   width: 100%;
-  max-width: 1800px;
   height: 500px;
   border: none;
   border-radius: 10px;
@@ -468,7 +466,7 @@ p {
 
 @media screen and (max-width: 768px) {
   #lokasi {
-    padding: 10px; /* Kurangi padding untuk tampilan kecil */
+    padding: 15px;
     text-align: center;
   }
 
@@ -483,14 +481,14 @@ p {
   }
 
   .map {
-    flex-direction: column; /* Jika ada elemen lain, pastikan fleksibel */
+    flex-direction: column;
     margin-top: 15px;
+    width: 100%;
   }
 
   .responsive-map {
-    width: 100%; /* Tetap responsif */
-    max-width: 100%; /* Tidak lebih besar dari layar */
-    height: 300px; /* Kurangi tinggi untuk layar kecil */
+    width: 100%;
+    height: 300px;
     border: none;
     border-radius: 10px;
     overflow: hidden;
