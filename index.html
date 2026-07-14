@@ -197,7 +197,7 @@
                         </div>
                         <div class="weather-stats">
                             <div class="w-item">
-                                <div class="w-label">Estimasi Suhu</div>
+                                <div class="w-label">Suhu Udara</div>
                                 <div class="w-value" id="weatherTemp">
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" stroke="currentColor"/>
@@ -501,12 +501,8 @@
                             <strong>Rp 20.000 <small>/ orang</small></strong>
                         </li>
                         <li>
-                            <span>Wisatawan Mancanegara (Weekday)</span>
-                            <strong>Rp 50.000 <small>/ orang</small></strong>
-                        </li>
-                        <li>
-                            <span>Wisatawan Mancanegara (Weekend &amp; Libur)</span>
-                            <strong>Rp 55.000 <small>/ orang</small></strong>
+                            <span>Wisatawan Mancanegara (WNA)</span>
+                            <strong style="font-size:13px;text-align:right;line-height:1.4">Tarif berbeda<br><small>Konfirmasi di loket</small></strong>
                         </li>
                     </ul>
                     <h4 class="tarif-subheading">Biaya Parkir Kendaraan</h4>
@@ -517,7 +513,7 @@
                         </li>
                         <li>
                             <span>Mobil Pribadi (Pos Retribusi Bawah)</span>
-                            <strong>Rp 15.000</strong>
+                            <strong>Rp 10.000</strong>
                         </li>
                     </ul>
                 </div>
@@ -530,28 +526,32 @@
                     <ul class="tarif-list">
                         <li>
                             <div>
-                                <strong>Jip Short Trip</strong>
-                                <p>Rute: Pos Bawah &harr; Puncak Utama</p>
-                            </div>
-                            <strong>Rp 400.000</strong>
-                        </li>
-                        <li>
-                            <div>
-                                <strong>Jip Medium Trip</strong>
-                                <p>Rute: Puncak Utama + Gardu Pandang</p>
+                                <strong>Jip Paket Sunrise / Sunset</strong>
+                                <p>Penjemputan subuh / sore, maks. 4 orang</p>
                             </div>
                             <strong>Rp 550.000</strong>
                         </li>
                         <li>
                             <div>
-                                <strong>Jip Long Trip</strong>
-                                <p>Rute: Puncak + Gardu Pandang + Embun Bening</p>
+                                <strong>Jip Paket Wisata Reguler</strong>
+                                <p>Kunjungan beberapa spot ikonik, maks. 4 orang</p>
+                            </div>
+                            <strong>Rp 400.000</strong>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Jip Paket Lengkap (Full Day)</strong>
+                                <p>Seluruh spot: puncak, gardu pandang, Embun Bening</p>
                             </div>
                             <strong>Rp 700.000</strong>
                         </li>
                     </ul>
                 </div>
             </div>
+            <p style="text-align:center;font-size:12px;color:var(--color-text-muted);margin-top:20px;line-height:1.6">
+                ⓘ Harga dapat berubah sewaktu-waktu sesuai kebijakan pengelola. Harga jip adalah per unit (maks. 4 orang), belum termasuk tiket masuk kawasan.
+                Disarankan reservasi minimal H&#8209;2 untuk Paket Sunrise pada hari libur.
+            </p>
         </div>
     </section>
 
@@ -900,76 +900,101 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Weather Dashboard Widget Simulation
-        function simulateWeather() {
+        // ── Real Weather: Open-Meteo API (gratis, tanpa API key) ──
+        // Koordinat puncak Gunung Telomoyo: -7.3667° LS, 110.4167° BT
+        // WMO weather code → label Bahasa Indonesia
+        const WMO_LABEL = {
+            0: 'Cerah', 1: 'Cerah Berawan', 2: 'Berawan', 3: 'Mendung',
+            45: 'Berkabut', 48: 'Kabut Beku',
+            51: 'Gerimis Ringan', 53: 'Gerimis', 55: 'Gerimis Lebat',
+            61: 'Hujan Ringan', 63: 'Hujan Sedang', 65: 'Hujan Lebat',
+            71: 'Salju Ringan', 73: 'Salju', 75: 'Salju Lebat',
+            80: 'Hujan Lokal', 81: 'Hujan Deras', 82: 'Hujan Sangat Deras',
+            95: 'Badai Petir', 96: 'Badai + Hujan Es', 99: 'Badai Besar'
+        };
+
+        function getWeatherIcon(code, isCloud) {
+            if (isCloud) {
+                return `<path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 8.58" stroke="currentColor"/>`;
+            }
+            if (code >= 51) {
+                // rain / storm drops
+                return `<path d="M8 19v2m4-2v2m4-2v2M4 11.5A7.5 7.5 0 0 1 17 7h1a5 5 0 0 1 0 10H5a5 5 0 0 1-1-9.9" stroke="currentColor"/>`;
+            }
+            // sunny/partly cloudy
+            return `<circle cx="12" cy="12" r="4" stroke="currentColor"/><line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-linecap="round"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-linecap="round"/><line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-linecap="round"/><line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-linecap="round"/>`;
+        }
+
+        function renderWeather(temp, code, windKph) {
             const tempEl = document.getElementById('weatherTemp');
             const condEl = document.getElementById('weatherCondition');
             const windEl = document.getElementById('weatherWind');
             const operationalBadge = document.getElementById('operationalBadge');
             const operationalText = document.getElementById('operationalText');
 
-            // Compute realistic temperature based on current local hour of the day
-            const currentHour = new Date().getHours();
-            let baseTemp = 18; // base mount temperature
-            if (currentHour >= 10 && currentHour <= 15) {
-                baseTemp += 5; // warmer mid-day
-            } else if (currentHour >= 22 || currentHour <= 4) {
-                baseTemp -= 4; // colder night
-            }
-            // Add a small random variance
-            const variance = (Math.random() * 2 - 1).toFixed(1);
-            const temp = (parseFloat(baseTemp) + parseFloat(variance)).toFixed(1);
+            const label = WMO_LABEL[code] ?? 'Tidak Diketahui';
+            const isBad  = [45,48,95,96,99].includes(code) || code >= 61;
+            const isCloud = code >= 2 && code <= 48;
+            const svgStyle = 'width:18px;height:18px;fill:none;stroke:var(--color-primary);stroke-width:2';
 
-            // Select weather condition based on temperature & time
-            let conditions = ['Cerah', 'Cerah Berawan', 'Berawan', 'Berkabut Tipis'];
-            if (temp < 16) {
-                conditions = ['Kabut Tebal', 'Berkabut', 'Berawan'];
-            }
-            const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
-            const windSpeed = Math.floor(Math.random() * 8) + 8; // 8 - 15 km/h
-
-            // Set values
             tempEl.innerHTML = `
-                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; fill: none; stroke: var(--color-primary); stroke-width: 2;">
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="${svgStyle}">
                     <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
                 </svg>
-                ${temp}°C
-            `;
-            
-            // Set Weather SVG Icon accordingly
-            let conditionIcon = `<circle cx="12" cy="12" r="5" stroke="currentColor"/>`;
-            if (randomCondition.includes('Kabut') || randomCondition.includes('Berawan')) {
-                conditionIcon = `<path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 8.58" stroke="currentColor"/>`;
-            }
+                ${temp}°C`;
+
             condEl.innerHTML = `
-                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; fill: none; stroke: var(--color-primary); stroke-width: 2;">
-                    ${conditionIcon}
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="${svgStyle}">
+                    ${getWeatherIcon(code, isCloud)}
                 </svg>
-                ${randomCondition}
-            `;
-            
+                ${label}`;
+
             windEl.innerHTML = `
-                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; fill: none; stroke: var(--color-primary); stroke-width: 2;">
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="${svgStyle}">
                     <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2M2 12h17a3 3 0 1 0-3-3" stroke-linecap="round"/>
                 </svg>
-                ${windSpeed} km/h
-            `;
+                ${windKph} km/j`;
 
-            // Operational status: if kabut tebal, show warning
-            if (randomCondition === 'Kabut Tebal') {
+            if (isBad) {
                 operationalBadge.style.color = '#EF4444';
-                operationalBadge.style.background = 'rgba(239, 68, 68, 0.1)';
-                operationalText.textContent = 'Jalur Ekstrem Kabut';
+                operationalBadge.style.background = 'rgba(239,68,68,0.1)';
+                operationalText.textContent = code === 45 || code === 48 ? 'Kabut – Hati-hati' : 'Cuaca Buruk';
             } else {
                 operationalBadge.style.color = '#10B981';
-                operationalBadge.style.background = 'rgba(16, 185, 129, 0.12)';
+                operationalBadge.style.background = 'rgba(16,185,129,0.12)';
                 operationalText.textContent = 'Jalur Dibuka';
             }
         }
 
-        // Run weather simulation on load & loop every 2 minutes
-        simulateWeather();
-        setInterval(simulateWeather, 120000);
+        async function fetchRealWeather() {
+            // Open-Meteo – gratis, tanpa API key
+            // Koordinat puncak Gunung Telomoyo (-7.3667, 110.4167), elevation ~1894 m
+            const url = 'https://api.open-meteo.com/v1/forecast' +
+                '?latitude=-7.3667&longitude=110.4167' +
+                '&current=temperature_2m,weathercode,windspeed_10m' +
+                '&windspeed_unit=kmh&timezone=Asia%2FJakarta';
+            try {
+                const res  = await fetch(url, { signal: AbortSignal.timeout(8000) });
+                const data = await res.json();
+                const c    = data.current;
+                renderWeather(
+                    parseFloat(c.temperature_2m).toFixed(1),
+                    c.weathercode,
+                    Math.round(c.windspeed_10m)
+                );
+            } catch (err) {
+                // Gagal ambil data – tampilkan pesan error ramah
+                const condEl = document.getElementById('weatherCondition');
+                condEl.innerHTML = `<span style="font-size:13px;color:var(--color-text-muted)">Data tidak tersedia</span>`;
+                document.getElementById('weatherTemp').innerHTML = `<span style="font-size:13px;color:var(--color-text-muted)">--°C</span>`;
+                document.getElementById('weatherWind').innerHTML = `<span style="font-size:13px;color:var(--color-text-muted)">-- km/j</span>`;
+                console.warn('[Cuaca] Open-Meteo fetch gagal:', err.message);
+            }
+        }
+
+        // Ambil data cuaca riil saat halaman dimuat, perbarui tiap 10 menit
+        fetchRealWeather();
+        setInterval(fetchRealWeather, 600000);
 
         // Fact Modals Interceptor and Controller
         const factCards = document.querySelectorAll('.fakta-card');
