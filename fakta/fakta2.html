@@ -1,38 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-theme="light">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gunung Berapi Tidak Aktif dan Aman</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="fakta.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakta 2: Bisa Dicapai dengan Kendaraan - Gunung Telomoyo</title>
+    <link rel="stylesheet" href="fakta.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+    </script>
 </head>
 
 <body>
-  <div class="container">
-    <div class="image-section" data-aos="fade-right">
-      <img src="img/fakta_2.jpg"
-        alt="Aerial view of a green mountain with a winding road and buildings on top, surrounded by clouds."
-        width="450" height="600">
+    <div class="aurora-bg" aria-hidden="true">
+        <div class="aurora-blob aurora-1"></div>
+        <div class="aurora-blob aurora-2"></div>
     </div>
-    <div class="content-section" data-aos="fade-left">
-      <h1>Bisa Dicapai dengan Kendaraan</h1>
-      <p>
-        Gunung Telomoyo memiliki keunikan, yaitu puncaknya yang dapat dicapai dengan kendaraan seperti motor atau mobil. Akses mudah ini membuatnya jadi destinasi wisata ramah bagi semua kalangan, bahkan bagi yang tidak terbiasa mendaki. Jalan beraspal dengan pemandangan alam memukau sepanjang perjalanan, dan setibanya di puncak, wisatawan dapat menikmati panorama pegunungan yang indah, menjadikan gunung ini favorit pecinta alam dan fotografi.
-      </p>
-      <div class="button-container">
-        <button class="next-button" onclick="window.location.href='fakta3.html';">Next</button>
-      </div>
+
+    <div class="container">
+        <div class="image-section" data-aos="fade-right" data-aos-duration="800">
+            <img src="../img/fakta_2.jpg" alt="Akses jalan aspal berliku menuju puncak Gunung Telomoyo">
+        </div>
+        <div class="content-section" data-aos="fade-left" data-aos-duration="800">
+            <h1>Bisa Dicapai dengan Kendaraan</h1>
+            <p>
+                Gunung Telomoyo menawarkan keunikan eksklusif yang jarang ditemui pada gunung berapi lainnya di Indonesia: puncaknya dapat dicapai langsung menggunakan kendaraan bermotor. Sebuah jalur jalan beraspal beton telah dibangun membentang dari pos retribusi bawah hingga stasiun pemancar seluler di puncak tertinggi.
+            </p>
+            <p>
+                Fasilitas jalan ini memungkinkan motor bebek, motor matic, maupun mobil jip wisata untuk mendaki dengan mudah tanpa harus kelelahan berjalan kaki berjam-jam. Wisatawan hanya perlu berkendara menyusuri aspal yang berkelok dengan panorama tebing dan lembah hijau yang luar biasa di sepanjang tepian jalan.
+            </p>
+            <div class="button-container">
+                <a href="fakta1.html" class="btn prev-button" aria-label="Kembali ke fakta pertama">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                    Sebelumnya
+                </a>
+                <a href="../index.html" class="btn back-home-btn" aria-label="Kembali ke Beranda">
+                    Beranda
+                </a>
+                <a href="fakta3.html" class="btn next-button" aria-label="Lanjut ke fakta ketiga">
+                    Fakta Berikutnya
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+    </script>
 </body>
 
 </html>

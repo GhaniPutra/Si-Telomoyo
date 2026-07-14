@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-theme="light">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gunung Berapi Tidak Aktif dan Aman</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="fakta.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakta 4: Pemandangan 5 Gunung dari Puncak - Gunung Telomoyo</title>
+    <link rel="stylesheet" href="fakta.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+    </script>
 </head>
 
 <body>
-  <div class="container">
-    <div class="image-section" data-aos="fade-right">
-      <img src="img/fakta_4.jpg"
-        alt="Aerial view of a green mountain with a winding road and buildings on top, surrounded by clouds."
-        width="450" height="600">
+    <div class="aurora-bg" aria-hidden="true">
+        <div class="aurora-blob aurora-1"></div>
+        <div class="aurora-blob aurora-2"></div>
     </div>
-    <div class="content-section" data-aos="fade-left">
-      <h1>Pemandangan 5 Gunung dari Puncak</h1>
-      <p>
-        Dari puncak Gunung Telomoyo, pengunjung dapat menikmati pemandangan lima gunung besar, yaitu Merbabu, Merapi, Andong, Sumbing, dan Ungaran. Panorama ini menjadi daya tarik utama bagi pecinta alam dan fotografi, terutama saat cuaca cerah. Lembah hijau, awan lembut, dan cakrawala tak berujung menciptakan suasana damai, menjadikan puncak Telomoyo tempat sempurna untuk menikmati alam dan mengabadikan momen.
-      </p>
-      <div class="button-container">
-        <button class="next-button" onclick="window.location.href='fakta5.html';">Next</button>
-      </div>
-    </div>
-  </div>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
 
+    <div class="container">
+        <div class="image-section" data-aos="fade-right" data-aos-duration="800">
+            <img src="../img/fakta_4.jpg" alt="Pemandangan siluet barisan gunung dari Gunung Telomoyo">
+        </div>
+        <div class="content-section" data-aos="fade-left" data-aos-duration="800">
+            <h1>Pemandangan 5 Gunung dari Puncak</h1>
+            <p>
+                Ketika Anda tiba di puncak tertinggi Gunung Telomoyo pada hari yang cerah tanpa kabut tebal, Anda akan dihadiahi pemandangan spektakuler 360 derajat yang memperlihatkan lima siluet gunung raksasa di Jawa Tengah secara berurutan.
+            </p>
+            <p>
+                Di sebelah selatan, Gunung Merbabu tampak sangat megah bertetangga dengan puncak Gunung Merapi. Di dekatnya, terdapat punggungan eksotis Gunung Andong. Sementara di arah barat laut dan utara, Gunung Sumbing dan Gunung Ungaran berdiri kokoh melengkapi formasi cincin raksasa pegunungan vulkanik ini.
+            </p>
+            <div class="button-container">
+                <a href="fakta3.html" class="btn prev-button" aria-label="Kembali ke fakta ketiga">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                    Sebelumnya
+                </a>
+                <a href="../index.html" class="btn back-home-btn" aria-label="Kembali ke Beranda">
+                    Beranda
+                </a>
+                <a href="fakta5.html" class="btn next-button" aria-label="Lanjut ke fakta kelima">
+                    Fakta Berikutnya
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+    </script>
 </body>
 
 </html>

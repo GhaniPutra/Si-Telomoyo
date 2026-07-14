@@ -1,42 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gunung Berapi Tidak Aktif dan Aman</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <title>Fakta 1: Gunung Berapi Tidak Aktif dan Aman - Gunung Telomoyo</title>
     <link rel="stylesheet" href="fakta.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        // Immediately load user's theme setting
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+    </script>
 </head>
 
 <body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-bg" aria-hidden="true">
+        <div class="aurora-blob aurora-1"></div>
+        <div class="aurora-blob aurora-2"></div>
+    </div>
+
     <div class="container">
-        <div class="image-section" data-aos="fade-right">
-            <img src="img/fakta_1.jpg"
-                alt="Aerial view of a green mountain with a winding road and buildings on top, surrounded by clouds."
-                width="450" height="600">
+        <div class="image-section" data-aos="fade-right" data-aos-duration="800">
+            <img src="../img/fakta_1.jpg" alt="Samudra awan menyelimuti lereng hijau di puncak Gunung Telomoyo">
         </div>
-        <div class="content-section" data-aos="fade-left">
+        <div class="content-section" data-aos="fade-left" data-aos-duration="800">
             <h1>Gunung berapi tidak aktif dan aman</h1>
             <p>
-                Gunung Telomoyo, meskipun berstatus sebagai gunung berapi, tidak menunjukkan tanda-tanda aktivitas
-                vulkanik yang membahayakan. Stabilitasnya menjadikannya tujuan wisata populer, menawarkan keindahan alam
-                tanpa risiko bencana. Tidak ada riwayat letusan besar atau gejala vulkanik aktif, sehingga aman untuk
-                pendakian dan kegiatan rekreasi. Meski demikian, pemantauan rutin tetap dilakukan untuk memastikan
-                keselamatan wisatawan dan masyarakat sekitar.
+                Gunung Telomoyo, meskipun secara struktural merupakan gunung berapi, bertipe strato tak aktif yang tidak menunjukkan aktivitas vulkanik berbahaya selama berabad-abad. Stabilitasnya menjadikannya tujuan wisata populer, menawarkan keindahan alam pegunungan tinggi tanpa risiko bencana letusan mendadak.
+            </p>
+            <p>
+                Tidak ada catatan riwayat letusan dahsyat dalam waktu modern, serta tidak menunjukkan gejala tremor vulkanik aktif. Hal ini memberikan jaminan keamanan bagi para pendaki pemula, wisatawan keluarga, maupun kegiatan rekreasi alam terbuka lainnya. Meskipun aman, pemantauan reguler tetap dilakukan oleh dinas terkait demi kenyamanan bersama.
             </p>
             <div class="button-container">
-                <button class="next-button" onclick="window.location.href='fakta2.html';">Next</button>
+                <a href="../index.html" class="btn back-home-btn" aria-label="Kembali ke Beranda">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                    Beranda
+                </a>
+                <a href="fakta2.html" class="btn next-button" aria-label="Lanjut ke fakta kedua">
+                    Fakta Berikutnya
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({ once: true });
     </script>
-
 </body>
 
 </html>

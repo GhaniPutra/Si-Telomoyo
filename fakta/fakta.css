@@ -1,130 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Color Palette - Matches Main System */
+  --color-primary: #059669;
+  --color-primary-rgb: 5, 150, 105;
+  --color-secondary: #10B981;
+  --color-accent: #D97706;
+  --color-accent-hover: #B45309;
+  --color-bg-base: #f3fcf7;
+  --color-bg-surface: #ffffff;
+  --color-text-main: #064e3b;
+  --color-text-muted: #1e3a2f;
+  --color-border: rgba(5, 150, 105, 0.12);
+  --color-card-bg: rgba(255, 255, 255, 0.85);
+
+  --shadow-md: 0 4px 20px -2px rgba(6, 78, 59, 0.08), 0 2px 8px -1px rgba(6, 78, 59, 0.04);
+  --shadow-xl: 0 24px 50px -8px rgba(6, 78, 59, 0.18), 0 8px 20px -6px rgba(6, 78, 59, 0.1);
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --color-primary: #34D399;
+  --color-primary-rgb: 52, 211, 153;
+  --color-secondary: #10B981;
+  --color-accent: #FBBF24;
+  --color-accent-hover: #F59E0B;
+  --color-bg-base: #020c08;
+  --color-bg-surface: #041f14;
+  --color-text-main: #f0fdf9;
+  --color-text-muted: #a7f3d0;
+  --color-border: rgba(52, 211, 153, 0.1);
+  --color-card-bg: rgba(4, 31, 20, 0.85);
+
+  --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 2px 8px -1px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 24px 50px -8px rgba(0, 0, 0, 0.7), 0 8px 20px -6px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden; /* Menghilangkan scroll */
-    background-color: #fff;
+  font-family: var(--font-body);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Sentinel Glow */
+.aurora-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(120px);
+  opacity: 0.12;
+}
+
+.aurora-1 {
+  background: var(--color-primary);
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -100px;
+}
+
+.aurora-2 {
+  background: var(--color-accent);
+  width: 350px;
+  height: 350px;
+  bottom: -50px;
+  right: -50px;
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
-    max-width: 100%; /* Pastikan tidak melebihi lebar layar */
-    max-height: 100%; /* Pastikan tidak melebihi tinggi layar */
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  background: var(--color-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .image-section {
-    flex: 1;
+  width: 45%;
+  position: relative;
 }
 
 .image-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 500px;
 }
 
 .content-section {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 55%;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .content-section h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  color: var(--color-text-main);
 }
 
 .content-section p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    .content-section {
-        padding: 20px;
-    }
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: 30px;
 }
 
 .button-container {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 12px;
 }
 
-.button-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.btn {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+  border: 1px solid var(--color-border);
 }
 
-.button-container .back-button {
-    background-color: #007bff;
-    color: white;
+.back-home-btn {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
 }
 
-.button-container .next-button {
-    background-color: #007bff;
-    color: white;
+.back-home-btn:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.08);
 }
 
+.prev-button {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+}
 
-/* Tampilan Mobile */
-@media (max-width: 768px) {
-    body {
-        height: auto; /* Biarkan tinggi menyesuaikan konten */
-        padding: 10px; /* Tambahkan sedikit padding di sekitar konten */
-    }
+.prev-button:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.1);
+}
 
-    .container {
-        flex-direction: column; /* Ubah layout menjadi kolom pada tampilan kecil */
-        height: auto; /* Biarkan tinggi kontainer menyesuaikan dengan konten */
-    }
+.next-button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+}
 
-    .image-section {
-        height: 200px; /* Sesuaikan tinggi gambar agar tidak terlalu besar pada perangkat mobile */
-    }
+.next-button:hover {
+  background-color: var(--color-secondary);
+  box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.3);
+}
 
-    .image-section img {
-        object-fit: cover; /* Pastikan gambar tetap terpotong dengan rapi */
-    }
+/* Tablet Responsive */
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .image-section {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .image-section img {
+    min-height: auto;
+    height: 250px;
+  }
+  
+  .content-section {
+    width: 100%;
+    padding: 32px;
+  }
+  
+  .content-section h1 {
+    font-size: 26px;
+  }
+}
 
-    .content-section {
-        padding: 20px; /* Kurangi padding agar lebih pas di layar kecil */
-    }
+/* Mobile Responsive */
+@media (max-width: 500px) {
+  body {
+    padding: 12px;
+  }
+  
+  .content-section {
+    padding: 24px;
+  }
+  
+  .button-container {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
-    .content-section h1 {
-        font-size: 24px; /* Sesuaikan ukuran judul agar lebih kecil di tampilan mobile */
-        margin-bottom: 15px; /* Kurangi margin untuk judul */
-    }
-
-    .content-section p {
-        font-size: 16px; /* Sesuaikan ukuran font untuk p agar lebih nyaman dibaca di mobile */
-        margin-bottom: 15px; /* Kurangi margin untuk paragraf */
-    }
-
-    .button-container {
-        flex-direction: column; /* Tombol tampil secara vertikal di mobile */
-        align-items: center; /* Posisikan tombol di tengah */
-    }
-
-    .button-container button {
-        width: 100%; /* Tombol mengisi lebar penuh pada layar mobile */
-        font-size: 14px; /* Kurangi ukuran font tombol agar lebih pas di layar kecil */
-    }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

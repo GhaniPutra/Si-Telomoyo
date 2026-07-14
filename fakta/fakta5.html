@@ -1,35 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-theme="light">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gunung Berapi Tidak Aktif dan Aman</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="fakta.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakta 5: Spot Paralayang Populer - Gunung Telomoyo</title>
+    <link rel="stylesheet" href="fakta.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+    </script>
 </head>
 
 <body>
-  <div class="container">
-    <div class="image-section" data-aos="fade-right">
-      <img src="img/fakta_5.jpg"
-        alt="Aerial view of a green mountain with a winding road and buildings on top, surrounded by clouds."
-        width="450" height="600">
+    <div class="aurora-bg" aria-hidden="true">
+        <div class="aurora-blob aurora-1"></div>
+        <div class="aurora-blob aurora-2"></div>
     </div>
-    <div class="content-section" data-aos="fade-left">
-      <h1>Spot Paralayang Populer</h1>
-      <p>
-        Gunung Telomoyo adalah spot paralayang populer di Indonesia, menarik penggemar olahraga udara dari berbagai daerah. Dengan ketinggian ideal dan angin stabil, Telomoyo menjadi tempat favorit atlet paralayang, baik pemula maupun profesional. Dari udara, penerbang dapat menikmati pemandangan pegunungan, lembah hijau, dan desa-desa kecil. Selain itu, Telomoyo juga sering menjadi tuan rumah kompetisi paralayang, menegaskan reputasinya sebagai destinasi unggulan.
-      </p>
+
+    <div class="container">
+        <div class="image-section" data-aos="fade-right" data-aos-duration="800">
+            <img src="../img/fakta_5.jpg" alt="Seorang atlit paralayang terbang bebas dengan latar belakang alam Gunung Telomoyo">
+        </div>
+        <div class="content-section" data-aos="fade-left" data-aos-duration="800">
+            <h1>Spot Paralayang Populer</h1>
+            <p>
+                Ketinggian tebing puncak Gunung Telomoyo yang curam dengan embusan angin konvektif yang stabil menjadikannya lokasi lepas landas (take-off) paralayang terbaik dan tertinggi di wilayah Jawa Tengah.
+            </p>
+            <p>
+                Lokasi landasan pacu yang berada dekat dengan puncak sering digunakan oleh para atlet profesional nasional maupun pencinta olahraga dirgantara untuk berlatih dan mengadakan kejuaraan paralayang resmi. Dari ketinggian udara, penikmat paralayang dapat merasakan sensasi melayang bebas di atas permukiman pedesaan Getasan, lembah persawahan hijau, dan bentangan danau Rawa Pening.
+            </p>
+            <div class="button-container">
+                <a href="fakta4.html" class="btn prev-button" aria-label="Kembali ke fakta keempat">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                    Sebelumnya
+                </a>
+                <a href="../index.html" class="btn back-home-btn" aria-label="Kembali ke Beranda">
+                    Beranda
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+    </script>
 </body>
 
 </html>

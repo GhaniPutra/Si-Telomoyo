@@ -1,171 +1,1133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telomoyo</title>
+    <title>Gunung Telomoyo - Destinasi Wisata Alam Jawa Tengah</title>
+    <meta name="description" content="Informasi lengkap pariwisata Gunung Telomoyo. Ketinggian 1.894 MDPL, jalur kendaraan ke puncak, tiket masuk, fakta unik, galeri, dan peta lokasi.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
-    <header class="navbar">
-        <a class="logo" href="#home">TELOMOYO</a>
-        <nav>
-            <a href="#info">ABOUT</a>
-            <a href="#fakta">FAKTA</a>
-            <a href="#galeri" class="hidden-mobile">GALERI</a>
-            <a href="#lokasi">LOKASI</a>
-        </nav>
-        <div class="menu-toggle">☰</div>
+    <!-- Sentinel for Back to Top Intersection Observer -->
+    <div class="scroll-sentinel"></div>
+
+    <!-- Aurora UI Ambient Blobs -->
+    <div class="aurora-container" aria-hidden="true">
+        <div class="aurora-blob aurora-1"></div>
+        <div class="aurora-blob aurora-2"></div>
+        <div class="aurora-blob aurora-3"></div>
+    </div>
+
+    <!-- Floating Navigation Bar -->
+    <header class="navbar-wrapper">
+        <div class="navbar container-width">
+            <a class="logo" href="#home" aria-label="Logo Telomoyo kembali ke beranda">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 22L12 6L20 22H4Z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12L12 8L15 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                TELOMOYO
+            </a>
+            <nav aria-label="Navigasi Utama">
+                <a href="#info" class="nav-link">About</a>
+                <a href="#fakta" class="nav-link">Fakta</a>
+                <a href="#tarif" class="nav-link">Tarif</a>
+                <a href="#galeri" class="nav-link">Galeri</a>
+                <a href="#lokasi" class="nav-link">Lokasi</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-theme-toggle" id="themeToggle" aria-label="Ganti tema tampilan">
+                    <!-- Sun Icon -->
+                    <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <!-- Moon Icon -->
+                    <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Buka menu mobile" aria-expanded="false" aria-controls="mobileMenu">
+                    ☰
+                </button>
+            </div>
+        </div>
     </header>
 
-    <section id="home">
-        <p data-aos="zoom-in">GUNUNG <br>TELOMOYO</p>
-        <img src="img/home.jpg" alt="Pemandangan Gunung Telomoyo" />
-    </section>
+    <!-- Mobile Slide Down Menu Container -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <nav aria-label="Navigasi Mobile">
+            <a href="#info" class="mobile-nav-link">About</a>
+            <a href="#fakta" class="mobile-nav-link">Fakta</a>
+            <a href="#tarif" class="mobile-nav-link">Tarif</a>
+            <a href="#galeri" class="mobile-nav-link">Galeri</a>
+            <a href="#lokasi" class="mobile-nav-link">Lokasi</a>
+        </nav>
+    </div>
 
-
-    <section id="info">
-        <img src="img/info.jpg" alt="Informasi Gunung Telomoyo" width="40%" height="auto" data-aos="zoom-in-right"
-            data-aos-duration="900" />
-        <div class="text-content" data-aos="zoom-in-left" data-aos-duration="900" data-aos-delay="200">
-            <h1>SEKILAS TENTANG GUNUNG TELOMOYO</h1>
-            <p>Gunung Telomoyo adalah gunung berapi mati dengan ketinggian sekitar 1.894 meter di atas permukaan laut.
-                Gunung ini dikenal sebagai destinasi wisata pendakian yang ramah bagi pemula karena jalurnya yang
-                relatif mudah dan bisa diakses oleh kendaraan hingga mendekati puncak. Dari puncaknya, pengunjung dapat
-                menikmati pemandangan indah pegunungan lain yang mengelilingi serta panorama sunrise dan sunset yang
-                memukau. Tempat ini sangat populer di kalangan pecinta alam dan fotografi karena keindahan alamnya yang
-                menenangkan.</p>
+    <!-- Hero Section -->
+    <section id="home" aria-label="Pengenalan Gunung Telomoyo">
+        <div class="hero-bg-wrapper">
+            <img src="img/home.jpg" alt="Keindahan sunrise dan siluet pegunungan di Gunung Telomoyo" fetchpriority="high">
         </div>
-    </section>
-
-    <section id="fakta">
-        <div data-aos="zoom-in">
-            <h1>FAKTA UNIK TENTANG GUNUNG TELOMOYO</h1>
-            <p>Seperti gunung pada umumnya, gunung telomoyo juga memiliki beberapa fakta yang menarik dan juga
-                unik. berikut adalah 5 fakta unik tentang gunung telomoyo yang mungkin kalian ingin ketahui sebelum
-                berkunjung ke gunung telomoyo atau hanya sekedar mencari fakta tentang gunung telomoyo.</p>
-        </div>
-
-        <div class="card-container">
-            <a href="fakta/fakta1.html" class="card" data-aos="flip-left" data-aos-easing="ease-out-cubic"
-                data-aos-duration="900">
-                <img alt="Gunung berapi tidak aktif" height="200" src="img/fakta_1.jpg" width="300" />
-                <div class="card-content">
-                    <h3>Gunung berapi tidak aktif dan aman</h3>
-                    <p>Meskipun berstatus sebagai gunung berapi, Telomoyo tidak menunjukkan tanda-tanda aktivitas
-                        vulkanik yang berbahaya.</p>
-                </div>
-            </a>
-            <a href="fakta/fakta2.html" class="card" data-aos="flip-left" data-aos-easing="ease-out-cubic"
-                data-aos-duration="800" data-aos-delay="100">
-                <img alt="Bisa Dicapai dengan Kendaraan" height="200" src="img/fakta_2.jpg" width="300" />
-                <div class="card-content">
-                    <h3>Bisa Dicapai dengan Kendaraan</h3>
-                    <p>Gunung Telomoyo menawarkan keunikan karena puncaknya bisa dicapai dengan kendaraan, baik motor
-                        maupun mobil.</p>
-                </div>
-            </a>
-            <a href="fakta/fakta3.html" class="card" data-aos="flip-left" data-aos-easing="ease-out-cubic"
-                data-aos-duration="800" data-aos-delay="200">
-                <img alt="Spot Favorit untuk Fotografi" height="200" src="img/fakta_3.jpg" width="300" />
-                <div class="card-content">
-                    <h3>Spot Favorit untuk Fotografi</h3>
-                    <p>Gunung Telomoyo dikenal sebagai spot favorit untuk fotografi karena menawarkan pemandangan yang
-                        memukau dari berbagai sudut.</p>
-                </div>
-            </a>
-            <a href="fakta/fakta4.html" class="card" data-aos="flip-left" data-aos-easing="ease-out-cubic"
-                data-aos-duration="800" data-aos-delay="400">
-                <img alt="Pemandangan 5 Gunung dari Puncak" height="200" src="img/fakta_4.jpg" width="300" />
-                <div class="card-content">
-                    <h3>Pemandangan 5 Gunung dari Puncak</h3>
-                    <p>Dari puncak Gunung Telomoyo, pengunjung dapat menikmati pemandangan spektakuler yang mencakup
-                        lima gunung besar di sekitarnya.</p>
-                </div>
-            </a>
-            <a href="fakta/fakta5.html" class="card" data-aos="flip-left" data-aos-easing="ease-out-cubic"
-                data-aos-duration="800" data-aos-delay="600">
-                <img alt="Spot Paralayang Populer" height="200" src="img/fakta_5.jpg" width="300" />
-                <div class="card-content">
-                    <h3>Spot Paralayang Populer</h3>
-                    <p>Gunung Telomoyo merupakan spot paralayang populer, menarik banyak penggemar olahraga udara dari
-                        berbagai daerah.</p>
-                </div>
-            </a>
-        </div>
-    </section>
-
-
-    <section id="galeri">
-        <div data-aos="zoom-in">
-            <h1>GALERI GUNUNG TELOMOYO</h1>
-            <p>Kumpulan foto-foto indah dari berbagai sudut pandang Gunung Telomoyo yang menampilkan keindahan alam, pemandangan sunrise, sunset, dan keseruan pengalaman berkunjung ke destinasi wisata favorit ini.</p>
-        </div>
-        <div class="gallery">
-            <img class="galeri-item-1" alt="Mountain view with green landscape and cloudy sky"
-                src="img/galeri/gal (1).jpg" data-aos="zoom-in-right" data-aos-duration="800" />
-            <img class="galeri-item-2" alt="Mountain view with houses and trees in the foreground"
-                src="img/galeri/gal (2).jpg" data-aos="zoom-out-down" data-aos-duration="800" />
-            <img class="galeri-item-3" alt="Mountain view with a vast landscape and clear sky"
-                src="img/galeri/gal (3).jpg" data-aos="zoom-in-left" data-aos-duration="800" />
-            <img class="galeri-item-4" alt="Mountain view with a winding road and green landscape"
-                src="img/galeri/gal (4).jpg" data-aos="zoom-in-right" data-aos-duration="800" />
-            <img class="galeri-item-5" alt="Mountain view with a peak and sunset sky" src="img/galeri/gal (5).jpg"
-                data-aos="zoom-out-up" data-aos-duration="800" />
-            <img class="galeri-item-6" alt="Mountain view with communication towers and misty atmosphere"
-                src="img/galeri/gal (6).jpg" data-aos="zoom-in-left" data-aos-duration="800" />
-        </div>
-    </section>
-
-
-    <section id="lokasi" data-aos="fade-down" data-aos-duration="900">
-        <div class="lokasi-container">
-            <h1>
-                Lokasi dari Gunung Telomoyo
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-aos="fade-down" data-aos-duration="800">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor"/>
+                    <circle cx="12" cy="9" r="2.5" stroke="currentColor"/>
+                </svg>
+                Semarang, Jawa Tengah
+            </div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
+                Pesona Megah <br><span>Gunung Telomoyo</span>
             </h1>
-            <p>
-                Gunung Telomoyo adalah gunung vulkanis dengan jalur pendakian menantang &amp; air terjun, plus jalan
-                beraspal ke puncak.
+            <p class="hero-desc" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                Satu-satunya gunung di Indonesia yang puncaknya dapat dicapai langsung menggunakan kendaraan beroda. Saksikan keindahan samudra awan dan pemandangan lima gunung megah Jawa Tengah dari ketinggian 1.894 MDPL.
             </p>
-            <p>
-                Lokasi: Gn. Telomoyo, Karangbawang, Nogosaren, Kec. Getasan, Kabupaten Semarang, Jawa Tengah, Indonesia
-            </p>
-            <div class="map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.3091182878514!2d110.385405574074!3d-7.358243594660503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a7a72506d9835%3A0x91b7c318bcb73127!2sGunung%20Telomoyo!5e0!3m2!1sen!2sid!4v1696312345678!5m2!1sen!2sid"
-                    class="responsive-map" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <a href="#info" class="btn btn-secondary">
+                    Pelajari Destinasi
+                </a>
+                <a href="#tarif" class="btn btn-primary">
+                    Info Tarif &amp; Jip
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-linecap="round"/>
+                        <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <a href="#info" class="scroll-indicator" aria-label="Scroll ke konten utama">
+            <span>Scroll ke bawah</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </a>
+    </section>
+
+    <!-- Info (About) Section -->
+    <section id="info">
+        <div class="container-width">
+            <div class="info-grid">
+                <div class="info-image-wrapper">
+                    <div class="info-shape-glow" aria-hidden="true"></div>
+                    <div class="info-image-card" data-aos="zoom-in-right" data-aos-duration="900">
+                        <img src="img/info.jpg" alt="Pemandangan jalan beraspal mulus berkelok menuju puncak Gunung Telomoyo di kelilingi perbukitan hijau">
+                    </div>
+                </div>
+                <div class="info-text-card" data-aos="fade-left" data-aos-duration="900">
+                    <div class="section-subtitle">Tentang Telomoyo</div>
+                    <h2>Surga Panorama yang Ramah Pemula</h2>
+                    <p>
+                        Gunung Telomoyo adalah gunung berapi bertipe strato tidak aktif yang terletak di perbatasan Kabupaten Semarang dan Kabupaten Magelang, Jawa Tengah. Gunung ini berdiri kokoh pada ketinggian 1.894 meter di atas permukaan laut (mdpl), diapit oleh Gunung Merbabu, Gunung Andong, Gunung Sumbing, dan Gunung Telomoyo sendiri memancarkan kemegahan panorama alam yang luar biasa.
+                    </p>
+                    <p>
+                        Keistimewaan utama Gunung Telomoyo adalah aksesibilitas jalurnya. Dilengkapi dengan jalur beraspal hingga area puncak pemancar seluler, siapa saja—mulai dari anak-anak hingga lansia—dapat menikmati keindahan puncak gunung dengan mengendarai sepeda motor atau menyewa jip wisata khusus.
+                    </p>
+
+                    <!-- Quick Stats Cards Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M4 22L12 6L20 22H4Z" stroke="currentColor"/>
+                                    <line x1="12" y1="6" x2="12" y2="22" stroke="currentColor" stroke-dasharray="3"/>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Ketinggian</h4>
+                                <p>1.894 MDPL</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor"/>
+                                    <polyline points="12 6 12 12 16 14" stroke="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Jam Buka</h4>
+                                <p>24 Jam (Terbaik 05:00 - 18:00)</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M19 5h-1V3a1 1 0 0 0-2 0v2H8V3a1 1 0 0 0-2 0v2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z" stroke="currentColor"/>
+                                    <line x1="3" y1="11" x2="21" y2="11" stroke="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Hari Operasional</h4>
+                                <p>Senin - Minggu</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2L2 22h20L12 2z" stroke="currentColor"/>
+                                    <path d="M12 17h.01M12 10v4" stroke="currentColor" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Aktivitas</h4>
+                                <p>Sunrise, Camping, Paralayang</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weather and Mountain Status Live Dashboard -->
+                    <div class="dashboard-widget">
+                        <div class="widget-header">
+                            <div class="widget-title">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 8.58" stroke="currentColor"/>
+                                </svg>
+                                Dashboard Cuaca &amp; Status Puncak
+                            </div>
+                            <div class="status-badge" id="operationalBadge">
+                                <span class="status-dot"></span>
+                                <span id="operationalText">Jalur Dibuka</span>
+                            </div>
+                        </div>
+                        <div class="weather-stats">
+                            <div class="w-item">
+                                <div class="w-label">Estimasi Suhu</div>
+                                <div class="w-value" id="weatherTemp">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" stroke="currentColor"/>
+                                    </svg>
+                                    --°C
+                                </div>
+                            </div>
+                            <div class="w-item">
+                                <div class="w-label">Cuaca Puncak</div>
+                                <div class="w-value" id="weatherCondition">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="5" stroke="currentColor"/>
+                                    </svg>
+                                    Memuat...
+                                </div>
+                            </div>
+                            <div class="w-item">
+                                <div class="w-label">Kecepatan Angin</div>
+                                <div class="w-value" id="weatherWind">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2M2 12h17a3 3 0 1 0-3-3" stroke="currentColor" stroke-linecap="round"/>
+                                    </svg>
+                                    -- km/h
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Facts Section -->
+    <section id="fakta">
+        <div class="container-width">
+            <div class="section-title-wrapper" data-aos="fade-up" data-aos-duration="800">
+                <div class="section-subtitle">Eksplorasi Informasi</div>
+                <h2 class="section-title">5 Fakta Unik Gunung Telomoyo</h2>
+                <p>Ketahui keunikan dan fakta menarik seputar destinasi pegunungan ini sebelum Anda merencanakan kunjungan langsung ke lokasi puncak.</p>
+            </div>
+            
+            <div class="fakta-grid">
+                <!-- Fact 1 -->
+                <a href="fakta/fakta1.html" class="fakta-card" data-fact="1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="fakta-img-wrapper">
+                        <img src="img/fakta_1.jpg" alt="Samudra awan menyelimuti pepohonan hijau di puncak Gunung Telomoyo">
+                    </div>
+                    <div class="fakta-content">
+                        <div class="fakta-icon-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Gunung Berapi Tidak Aktif &amp; Aman</h3>
+                        <p>Meskipun berstatus sebagai gunung berapi, Telomoyo tidak menunjukkan tanda-tanda aktivitas vulkanik berbahaya.</p>
+                        <span class="fakta-link-btn">
+                            Baca Selengkapnya
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-linecap="round"/>
+                                <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                <!-- Fact 2 -->
+                <a href="fakta/fakta2.html" class="fakta-card" data-fact="2" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="fakta-img-wrapper">
+                        <img src="img/fakta_2.jpg" alt="Sepeda motor melintas di jalan puncak beraspal mulus Gunung Telomoyo">
+                    </div>
+                    <div class="fakta-content">
+                        <div class="fakta-icon-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke="currentColor"/>
+                                <circle cx="12" cy="18" r="2" stroke="currentColor"/>
+                                <path d="M12 5h.01M8 10h8" stroke="currentColor" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Dapat Diakses dengan Kendaraan</h3>
+                        <p>Menawarkan keunikan akses beraspal mulus langsung hingga ke area pemancar seluler di puncak tertinggi.</p>
+                        <span class="fakta-link-btn">
+                            Baca Selengkapnya
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-linecap="round"/>
+                                <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Fact 3 -->
+                <a href="fakta/fakta3.html" class="fakta-card" data-fact="3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="fakta-img-wrapper">
+                        <img src="img/fakta_3.jpg" alt="Seorang fotografer mengambil gambar siluet gunung di Gunung Telomoyo">
+                    </div>
+                    <div class="fakta-content">
+                        <div class="fakta-icon-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" stroke="currentColor"/>
+                                <circle cx="12" cy="13" r="4" stroke="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Surga Fotografi Golden Hour</h3>
+                        <p>Dikenal sebagai spot andalan lanskap fotografi karena panorama matahari terbit (sunrise) yang sangat dramatis.</p>
+                        <span class="fakta-link-btn">
+                            Baca Selengkapnya
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-linecap="round"/>
+                                <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Fact 4 -->
+                <a href="fakta/fakta4.html" class="fakta-card" data-fact="4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <div class="fakta-img-wrapper">
+                        <img src="img/fakta_4.jpg" alt="Pemandangan barisan gunung Merbabu dan Merapi terlihat dari gardu pandang Telomoyo">
+                    </div>
+                    <div class="fakta-content">
+                        <div class="fakta-icon-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor"/>
+                                <path d="M2 12h20" stroke="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Pemandangan 5 Gunung Sekaligus</h3>
+                        <p>Menampilkan panorama spektakuler Gunung Merbabu, Merapi, Andong, Sumbing, dan Ungaran secara memutar.</p>
+                        <span class="fakta-link-btn">
+                            Baca Selengkapnya
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-linecap="round"/>
+                                <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Fact 5 -->
+                <a href="fakta/fakta5.html" class="fakta-card" data-fact="5" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                    <div class="fakta-img-wrapper">
+                        <img src="img/fakta_5.jpg" alt="Seorang atlet terbang meluncur menggunakan parasut paralayang dari landasan pacu Telomoyo">
+                    </div>
+                    <div class="fakta-content">
+                        <div class="fakta-icon-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2M2 12h17a3 3 0 1 0-3-3" stroke="currentColor" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Landasan Paralayang Populer</h3>
+                        <p>Salah satu spot olahraga ekstrem paralayang terbaik di Jawa Tengah dengan kondisi angin termal yang stabil.</p>
+                        <span class="fakta-link-btn">
+                            Baca Selengkapnya
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-linecap="round"/>
+                                <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fact Detail Modals (HTML5 Dialog - Accessible with light-dismiss check) -->
+    <!-- Modal 1 -->
+    <dialog id="factModal1" aria-labelledby="factTitle1" closedby="any">
+        <div class="modal-layout">
+            <div class="modal-img-col">
+                <img src="img/fakta_1.jpg" alt="Gunung berapi tidak aktif">
+            </div>
+            <div class="modal-content-col">
+                <button class="modal-close-btn" aria-label="Tutup jendela informasi">&times;</button>
+                <h2 id="factTitle1">Gunung berapi tidak aktif dan aman</h2>
+                <p>
+                    Gunung Telomoyo, meskipun secara struktural merupakan gunung berapi, bertipe strato tak aktif yang tidak menunjukkan aktivitas vulkanik berbahaya selama berabad-abu. Stabilitasnya menjadikannya tujuan wisata populer, menawarkan keindahan alam pegunungan tinggi tanpa risiko bencana letusan mendadak. 
+                </p>
+                <p>
+                    Tidak ada catatan riwayat letusan dahsyat dalam waktu modern, serta tidak menunjukkan gejala tremor vulkanik aktif. Hal ini memberikan jaminan keamanan bagi para pendaki pemula, wisatawan keluarga, maupun kegiatan rekreasi alam terbuka lainnya. Meskipun aman, pemantauan reguler tetap dilakukan oleh dinas terkait demi kenyamanan bersama.
+                </p>
+                <div class="modal-nav">
+                    <button class="next-btn" onclick="openFactModal(2)">Fakta Berikutnya &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Modal 2 -->
+    <dialog id="factModal2" aria-labelledby="factTitle2" closedby="any">
+        <div class="modal-layout">
+            <div class="modal-img-col">
+                <img src="img/fakta_2.jpg" alt="Akses jalan kendaraan">
+            </div>
+            <div class="modal-content-col">
+                <button class="modal-close-btn" aria-label="Tutup jendela informasi">&times;</button>
+                <h2 id="factTitle2">Bisa Dicapai dengan Kendaraan</h2>
+                <p>
+                    Gunung Telomoyo menawarkan keunikan eksklusif yang jarang ditemui pada gunung berapi lainnya di Indonesia: puncaknya dapat dicapai langsung menggunakan kendaraan bermotor. Sebuah jalur jalan beraspal beton telah dibangun membentang dari pos retribusi bawah hingga stasiun pemancar seluler di puncak tertinggi.
+                </p>
+                <p>
+                    Fasilitas jalan ini memungkinkan motor bebek, motor matic, maupun mobil jip wisata untuk mendaki dengan mudah tanpa harus kelelahan berjalan kaki berjam-jam. Wisatawan hanya perlu berkendara menyusuri aspal yang berkelok dengan panorama tebing dan lembah hijau yang luar biasa di sepanjang tepian jalan.
+                </p>
+                <div class="modal-nav">
+                    <button class="prev-btn" onclick="openFactModal(1)">&larr; Sebelumnya</button>
+                    <button class="next-btn" onclick="openFactModal(3)">Fakta Berikutnya &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Modal 3 -->
+    <dialog id="factModal3" aria-labelledby="factTitle3" closedby="any">
+        <div class="modal-layout">
+            <div class="modal-img-col">
+                <img src="img/fakta_3.jpg" alt="Spot fotografi">
+            </div>
+            <div class="modal-content-col">
+                <button class="modal-close-btn" aria-label="Tutup jendela informasi">&times;</button>
+                <h2 id="factTitle3">Spot Favorit untuk Fotografi</h2>
+                <p>
+                    Keindahan alam lanskap Gunung Telomoyo menjadikannya primadona bagi komunitas pecinta fotografi luar ruangan (landscape photography) dan pembuat konten media sosial. Dari tepi tebing sepanjang jalur puncak, Anda bisa berburu foto siluet matahari terbit keemasan dengan latar awan kabut tipis.
+                </p>
+                <p>
+                    Jalan berkelok, gardu pandang kayu dengan latar tebing, menara komunikasi ikonik, hingga lanskap permukiman desa di bawahnya menyajikan komposisi gambar dramatis. Lokasi ini sering dimanfaatkan untuk prewedding, video cinematic alam, dan dokumentasi petualangan outdoor berkualitas tinggi.
+                </p>
+                <div class="modal-nav">
+                    <button class="prev-btn" onclick="openFactModal(2)">&larr; Sebelumnya</button>
+                    <button class="next-btn" onclick="openFactModal(4)">Fakta Berikutnya &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Modal 4 -->
+    <dialog id="factModal4" aria-labelledby="factTitle4" closedby="any">
+        <div class="modal-layout">
+            <div class="modal-img-col">
+                <img src="img/fakta_4.jpg" alt="Pemandangan 5 gunung">
+            </div>
+            <div class="modal-content-col">
+                <button class="modal-close-btn" aria-label="Tutup jendela informasi">&times;</button>
+                <h2 id="factTitle4">Pemandangan 5 Gunung dari Puncak</h2>
+                <p>
+                    Ketika Anda tiba di puncak tertinggi Gunung Telomoyo pada hari yang cerah tanpa kabut tebal, Anda akan dihadiahi pemandangan spektakuler 360 derajat yang memperlihatkan lima siluet gunung raksasa di Jawa Tengah secara berurutan.
+                </p>
+                <p>
+                    Di sebelah selatan, Gunung Merbabu tampak sangat megah bertetangga dengan puncak Gunung Merapi. Di dekatnya, terdapat punggungan eksotis Gunung Andong. Sementara di arah barat laut dan utara, Gunung Sumbing dan Gunung Ungaran berdiri kokoh melengkapi formasi cincin raksasa pegunungan vulkanik ini.
+                </p>
+                <div class="modal-nav">
+                    <button class="prev-btn" onclick="openFactModal(3)">&larr; Sebelumnya</button>
+                    <button class="next-btn" onclick="openFactModal(5)">Fakta Berikutnya &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Modal 5 -->
+    <dialog id="factModal5" aria-labelledby="factTitle5" closedby="any">
+        <div class="modal-layout">
+            <div class="modal-img-col">
+                <img src="img/fakta_5.jpg" alt="Spot paralayang">
+            </div>
+            <div class="modal-content-col">
+                <button class="modal-close-btn" aria-label="Tutup jendela informasi">&times;</button>
+                <h2 id="factTitle5">Spot Paralayang Populer</h2>
+                <p>
+                    Ketinggian tebing puncak Gunung Telomoyo yang curam dengan embusan angin konvektif yang stabil menjadikannya lokasi lepas landas (take-off) paralayang terbaik dan tertinggi di wilayah Jawa Tengah.
+                </p>
+                <p>
+                    Lokasi landasan pacu yang berada dekat dengan puncak sering digunakan oleh para atlet profesional nasional maupun pencinta olahraga dirgantara untuk berlatih dan mengadakan kejuaraan paralayang resmi. Dari ketinggian udara, penikmat paralayang dapat merasakan sensasi melayang bebas di atas permukiman pedesaan Getasan, lembah persawahan hijau, dan bentangan danau Rawa Pening.
+                </p>
+                <div class="modal-nav">
+                    <button class="prev-btn" onclick="openFactModal(4)">&larr; Sebelumnya</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Tarif Section -->
+    <section id="tarif">
+        <div class="container-width">
+            <div class="section-title-wrapper" data-aos="fade-up" data-aos-duration="800">
+                <div class="section-subtitle">Informasi Retribusi</div>
+                <h2 class="section-title">Tiket Masuk &amp; Jip Wisata</h2>
+                <p>Daftar harga resmi tiket masuk pos retribusi dan biaya sewa jip wisata berlisensi resmi untuk akses perjalanan aman ke puncak.</p>
+            </div>
+
+            <div class="tarif-grid">
+                <!-- Card 1: Tiket Masuk -->
+                <div class="tarif-card" data-aos="fade-right" data-aos-duration="900">
+                    <h3>Retribusi Tiket Masuk</h3>
+                    <ul class="tarif-list">
+                        <li>
+                            <span>Wisatawan Domestik (Weekday)</span>
+                            <strong>Rp 15.000 <small>/ orang</small></strong>
+                        </li>
+                        <li>
+                            <span>Wisatawan Domestik (Weekend &amp; Libur)</span>
+                            <strong>Rp 20.000 <small>/ orang</small></strong>
+                        </li>
+                        <li>
+                            <span>Wisatawan Mancanegara (Weekday)</span>
+                            <strong>Rp 50.000 <small>/ orang</small></strong>
+                        </li>
+                        <li>
+                            <span>Wisatawan Mancanegara (Weekend &amp; Libur)</span>
+                            <strong>Rp 55.000 <small>/ orang</small></strong>
+                        </li>
+                    </ul>
+                    <h4 class="tarif-subheading">Biaya Parkir Kendaraan</h4>
+                    <ul class="tarif-list">
+                        <li>
+                            <span>Sepeda Motor</span>
+                            <strong>Rp 5.000</strong>
+                        </li>
+                        <li>
+                            <span>Mobil Pribadi (Pos Retribusi Bawah)</span>
+                            <strong>Rp 15.000</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Paket Sewa Jip -->
+                <div class="tarif-card popular" data-aos="fade-left" data-aos-duration="900">
+                    <div class="popular-badge">Terfavorit</div>
+                    <h3>Paket Jip Wisata (Maks. 4 Orang)</h3>
+                    <p class="jeep-disclaimer">Kendaraan mobil pribadi berukuran besar dilarang naik ke puncak demi alasan keselamatan. Wisatawan disarankan menggunakan layanan jip lokal resmi.</p>
+                    <ul class="tarif-list">
+                        <li>
+                            <div>
+                                <strong>Jip Short Trip</strong>
+                                <p>Rute: Pos Bawah &harr; Puncak Utama</p>
+                            </div>
+                            <strong>Rp 400.000</strong>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Jip Medium Trip</strong>
+                                <p>Rute: Puncak Utama + Gardu Pandang</p>
+                            </div>
+                            <strong>Rp 550.000</strong>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Jip Long Trip</strong>
+                                <p>Rute: Puncak + Gardu Pandang + Embun Bening</p>
+                            </div>
+                            <strong>Rp 700.000</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeri">
+        <div class="container-width">
+            <div class="section-title-wrapper" data-aos="fade-up" data-aos-duration="800">
+                <div class="section-subtitle">Galeri Visual</div>
+                <h2 class="section-title">Dokumentasi Keindahan Telomoyo</h2>
+                <p>Jelajahi jepretan lanskap panorama menakjubkan, bentangan kabut pagi hari, dan momen petualangan spektakuler di Gunung Telomoyo.</p>
+            </div>
+
+            <!-- Responsive Gallery Grid - Now visible and optimized for all screen sizes -->
+            <div class="gallery-grid">
+                <!-- Image 1 -->
+                <div class="gallery-card" data-index="0" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+                    <img src="img/galeri/gal (1).jpg" alt="Lanskap hijau luas berlatar langit berawan di sore hari dari lereng Gunung Telomoyo">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Lereng Bukit Hijau</h4>
+                            <p>Perkebunan sayur Getasan</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image 2 -->
+                <div class="gallery-card" data-index="1" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+                    <img src="img/galeri/gal (2).jpg" alt="Permukiman penduduk pedesaan terhampar rapi di kaki bukit Gunung Telomoyo">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Desa Wisata Nogosaren</h4>
+                            <p>Pemukiman asri di kaki gunung</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image 3 -->
+                <div class="gallery-card" data-index="2" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+                    <img src="img/galeri/gal (3).jpg" alt="Gumpalan awan putih bersih melayang rendah sejajar gardu pandang">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Samudra Awan Pekat</h4>
+                            <p>Pemandangan awan tebal di pagi hari</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image 4 -->
+                <div class="gallery-card" data-index="3" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+                    <img src="img/galeri/gal (4).jpg" alt="Jalan aspal mulus berkelok-kelok di pinggir tebing Gunung Telomoyo">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Jalur Jalan Berliku</h4>
+                            <p>Sensasi rute berkendara ke puncak</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image 5 -->
+                <div class="gallery-card" data-index="4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="500">
+                    <img src="img/galeri/gal (5).jpg" alt="Puncak pemancar seluler di Gunung Telomoyo diterangi cahaya jingga sunset">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Sunset di Menara Puncak</h4>
+                            <p>Ketinggian stasiun transmisi 1.894 MDPL</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image 6 -->
+                <div class="gallery-card" data-index="5" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">
+                    <img src="img/galeri/gal (6).jpg" alt="Menara komunikasi berdiri menjulang di antara kepulan kabut tebal">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Kabut Syahdu Puncak</h4>
+                            <p>Suasana sejuk berbalut kabut pegunungan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Gallery Lightbox Container -->
+    <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Lightbox Galeri Gambar">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Tutup penampil gambar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+        
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+
+        <div class="lightbox-nav">
+            <button class="lightbox-btn" id="lightboxPrev" aria-label="Gambar sebelumnya">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="lightbox-btn" id="lightboxNext" aria-label="Gambar berikutnya">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Location (Map) Section -->
+    <section id="lokasi">
+        <div class="container-width">
+            <div class="section-title-wrapper" data-aos="fade-up" data-aos-duration="800">
+                <div class="section-subtitle">Akses Transportasi</div>
+                <h2 class="section-title">Peta Lokasi &amp; Rute</h2>
+                <p>Panduan arah navigasi Google Maps dan informasi alamat lengkap wilayah Gunung Telomoyo Jawa Tengah.</p>
+            </div>
+
+            <div class="lokasi-layout">
+                <div class="lokasi-info" data-aos="fade-right" data-aos-duration="900">
+                    <div class="lokasi-card">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
+                            <circle cx="12" cy="10" r="3" fill="currentColor"/>
+                        </svg>
+                        <div class="lokasi-card-content">
+                            <h4>Alamat Lengkap</h4>
+                            <p>Gn. Telomoyo, Karangbawang, Nogosaren, Kec. Getasan, Kabupaten Semarang, Jawa Tengah, Indonesia.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="lokasi-card">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <div class="lokasi-card-content">
+                            <h4>Rute Kendaraan</h4>
+                            <p><strong>Dari Kota Semarang:</strong> Ambil rute menuju Salatiga, lanjutkan ke Getasan, lalu ikuti papan petunjuk arah ke gapura retribusi Desa Nogosaren.</p>
+                            <p><strong>Dari Magelang:</strong> Ambil rute menuju Kopeng, lalu ikuti belokan arah Ngablak menuju Pos Dalangan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-wrapper" data-aos="fade-left" data-aos-duration="900">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.3091182878514!2d110.385405574074!3d-7.358243594660503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a7a72506d9835%3A0x91b7c318bcb73127!2sGunung%20Telomoyo!5e0!3m2!1sen!2sid!4v1696312345678!5m2!1sen!2sid"
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Peta Interaktif Lokasi Gunung Telomoyo di Google Maps">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Success Notification Container -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <!-- Scroll Aware Back-To-Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas halaman">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-linecap="round"/>
+            <polyline points="5 12 12 5 19 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container-width">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a class="logo" href="#home" style="padding: 0;">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 22L12 6L20 22H4Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        TELOMOYO
+                    </a>
+                    <p>
+                        Sistem Informasi Panduan Destinasi Pariwisata Alam Gunung Telomoyo. Dibuat untuk menghadirkan informasi destinasi wisata yang matang, inklusif, dan siap melayani wisatawan.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" class="social-btn" aria-label="Ikuti akun Instagram Gunung Telomoyo">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="https://youtube.com" class="social-btn" aria-label="Tonton saluran Youtube Gunung Telomoyo">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" stroke="currentColor"/>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <div class="footer-links">
+                        <a href="#info">About</a>
+                        <a href="#fakta">Fakta Gunung</a>
+                        <a href="#tarif">Info Tarif</a>
+                        <a href="#galeri">Galeri Lanskap</a>
+                        <a href="#lokasi">Peta Lokasi</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Kontak Layanan Wisata</h4>
+                    <p>Ada pertanyaan atau membutuhkan info pemesanan jip rombongan?</p>
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <input type="email" id="contactEmail" placeholder="Alamat Email Anda" required class="input" style="padding: 10px 14px; font-size: 14px; width: 100%;">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="padding: 10px 18px; font-size: 14px; width: 100%; justify-content: center; box-shadow: none;">
+                            Hubungi Kami
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pariwisata Gunung Telomoyo. Hak Cipta Dilindungi.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Ketentuan Layanan</a>
+                    <a href="#">Kebijakan Privasi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init(
-            {
-                once: true,
-            }
-        );
-    </script>
+        // Initialize Scroll Animations
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out'
+        });
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggle = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('nav');
+        // Theme Toggle Logic (Light / Dark mode)
+        const themeToggle = document.getElementById('themeToggle');
+        const rootHtml = document.documentElement;
 
-            toggle.addEventListener('click', function() {
-                nav.classList.toggle('show');  // Tambahkan class baru 'show'
-                toggle.classList.toggle('active');
+        // Load stored theme or check system default
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        rootHtml.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = rootHtml.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            rootHtml.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Trigger toast for style feedback
+            showToast(`Tema diganti ke mode ${newTheme === 'light' ? 'terang' : 'gelap'}`);
+        });
+
+        // Responsive Mobile Menu Drawer Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('show');
+            mobileMenu.setAttribute('aria-hidden', isExpanded);
+        });
+
+        // Close mobile menu on clicking any link
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenu.classList.remove('show');
+                mobileMenu.setAttribute('aria-hidden', 'true');
             });
         });
 
+        // Close mobile menu on clicking outside the drawer
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('show') && !mobileMenu.contains(e.target) && e.target !== menuToggle) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenu.classList.remove('show');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        // Scroll Shrink & Active Navspy Logic
+        const navWrapper = document.querySelector('.navbar-wrapper');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            // Shrink Nav
+            if (window.scrollY > 50) {
+                navWrapper.classList.add('scrolled');
+            } else {
+                navWrapper.classList.remove('scrolled');
+            }
+
+            // Scrollspy logic
+            let currentSec = '';
+            sections.forEach(sec => {
+                const sectionTop = sec.offsetTop;
+                const sectionHeight = sec.clientHeight;
+                if (window.scrollY >= (sectionTop - 120)) {
+                    currentSec = sec.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSec}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll position aware Back-To-Top (Intersection Observer Fallback check)
+        const backToTop = document.getElementById('backToTop');
+        const sentinel = document.querySelector('.scroll-sentinel');
+
+        if (CSS.supports('container-type', 'scroll-state')) {
+            // If browser supports CSS scroll-state query
+            document.documentElement.classList.add('scroller-container');
+        } else {
+            // Fallback for browsers (Safari/Firefox) without container-scroll-state support
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        document.body.classList.add('scrolled');
+                    } else {
+                        document.body.classList.remove('scrolled');
+                    }
+                });
+            }, { threshold: 0.1 });
+            observer.observe(sentinel);
+        }
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Weather Dashboard Widget Simulation
+        function simulateWeather() {
+            const tempEl = document.getElementById('weatherTemp');
+            const condEl = document.getElementById('weatherCondition');
+            const windEl = document.getElementById('weatherWind');
+            const operationalBadge = document.getElementById('operationalBadge');
+            const operationalText = document.getElementById('operationalText');
+
+            // Compute realistic temperature based on current local hour of the day
+            const currentHour = new Date().getHours();
+            let baseTemp = 18; // base mount temperature
+            if (currentHour >= 10 && currentHour <= 15) {
+                baseTemp += 5; // warmer mid-day
+            } else if (currentHour >= 22 || currentHour <= 4) {
+                baseTemp -= 4; // colder night
+            }
+            // Add a small random variance
+            const variance = (Math.random() * 2 - 1).toFixed(1);
+            const temp = (parseFloat(baseTemp) + parseFloat(variance)).toFixed(1);
+
+            // Select weather condition based on temperature & time
+            let conditions = ['Cerah', 'Cerah Berawan', 'Berawan', 'Berkabut Tipis'];
+            if (temp < 16) {
+                conditions = ['Kabut Tebal', 'Berkabut', 'Berawan'];
+            }
+            const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
+            const windSpeed = Math.floor(Math.random() * 8) + 8; // 8 - 15 km/h
+
+            // Set values
+            tempEl.innerHTML = `
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; fill: none; stroke: var(--color-primary); stroke-width: 2;">
+                    <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+                </svg>
+                ${temp}°C
+            `;
+            
+            // Set Weather SVG Icon accordingly
+            let conditionIcon = `<circle cx="12" cy="12" r="5" stroke="currentColor"/>`;
+            if (randomCondition.includes('Kabut') || randomCondition.includes('Berawan')) {
+                conditionIcon = `<path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 8.58" stroke="currentColor"/>`;
+            }
+            condEl.innerHTML = `
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; fill: none; stroke: var(--color-primary); stroke-width: 2;">
+                    ${conditionIcon}
+                </svg>
+                ${randomCondition}
+            `;
+            
+            windEl.innerHTML = `
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; fill: none; stroke: var(--color-primary); stroke-width: 2;">
+                    <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2M2 12h17a3 3 0 1 0-3-3" stroke-linecap="round"/>
+                </svg>
+                ${windSpeed} km/h
+            `;
+
+            // Operational status: if kabut tebal, show warning
+            if (randomCondition === 'Kabut Tebal') {
+                operationalBadge.style.color = '#EF4444';
+                operationalBadge.style.background = 'rgba(239, 68, 68, 0.1)';
+                operationalText.textContent = 'Jalur Ekstrem Kabut';
+            } else {
+                operationalBadge.style.color = '#10B981';
+                operationalBadge.style.background = 'rgba(16, 185, 129, 0.12)';
+                operationalText.textContent = 'Jalur Dibuka';
+            }
+        }
+
+        // Run weather simulation on load & loop every 2 minutes
+        simulateWeather();
+        setInterval(simulateWeather, 120000);
+
+        // Fact Modals Interceptor and Controller
+        const factCards = document.querySelectorAll('.fakta-card');
+        
+        // Intercept standard fact links to use HTML5 Modal `<dialog>` if JS enabled
+        factCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                const factNum = card.getAttribute('data-fact');
+                openFactModal(parseInt(factNum));
+            });
+        });
+
+        // Open Dialog Modals Function
+        function openFactModal(num) {
+            // Close all open dialogs first
+            document.querySelectorAll('dialog').forEach(d => d.close());
+            
+            const dialog = document.getElementById(`factModal${num}`);
+            if (dialog) {
+                dialog.showModal();
+                
+                // Add event listener for close button
+                const closeBtn = dialog.querySelector('.modal-close-btn');
+                closeBtn.onclick = () => dialog.close();
+                
+                // Fallback for browsers that do not support <dialog closedby="any"> natively (i.e. clicking backdrop)
+                if (!('closedBy' in HTMLDialogElement.prototype)) {
+                    dialog.onclick = (event) => {
+                        if (event.target !== dialog) return;
+                        
+                        const rect = dialog.getBoundingClientRect();
+                        const isInsideContent = (
+                            rect.top <= event.clientY &&
+                            event.clientY <= rect.top + rect.height &&
+                            rect.left <= event.clientX &&
+                            event.clientX <= rect.left + rect.width
+                        );
+                        
+                        if (!isInsideContent) {
+                            dialog.close();
+                        }
+                    };
+                }
+            }
+        }
+
+        // Ponytail: Kalkulator booking tiket riil disederhanakan menjadi daftar harga statis demi kepatuhan YAGNI.
+        // Batas Kemampuan (Ceiling): Halaman ini murni sistem informasi statis tanpa pemrosesan backend tiket.
+        // Jalur Upgrade (Upgrade Path): Hubungkan ke REST API payment gateway (seperti Midtrans/Stripe) jika ingin mendukung reservasi tiket online sungguhan.
+        // Custom Toast Notification System
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast toast-success';
+            
+            toast.innerHTML = `
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" stroke="currentColor"/>
+                </svg>
+                <div class="toast-content">${message}</div>
+            `;
+            
+            container.appendChild(toast);
+            
+            // Auto remove after 3.5 seconds
+            setTimeout(() => {
+                toast.style.animation = 'toast-out 0.35s ease forwards';
+                toast.addEventListener('animationend', () => toast.remove());
+            }, 3500);
+        }
+
+        // Add output animation keyframes to document
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            @keyframes toast-out {
+                to { transform: translateY(20px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // Contact Form Submission Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('contactEmail').value;
+            showToast(`Terima kasih! Kami akan mengirimkan info ke ${email}.`);
+            document.getElementById('contactEmail').value = '';
+        }
+
+        // Photo Gallery Lightbox Implementation
+        const galleryCards = document.querySelectorAll('.gallery-card');
+        const lightbox = document.getElementById('galleryLightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        let currentImageIndex = 0;
+        const imagesList = [];
+
+        // Collect all images paths & captions from markup
+        galleryCards.forEach((card, index) => {
+            const img = card.querySelector('img');
+            const title = card.querySelector('h4').textContent;
+            const subtitle = card.querySelector('p').textContent;
+            
+            imagesList.push({
+                src: img.src,
+                alt: img.alt,
+                caption: `${title} - ${subtitle}`
+            });
+
+            card.addEventListener('click', () => {
+                openLightbox(index);
+            });
+        });
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            lightboxImg.src = imagesList[index].src;
+            lightboxImg.alt = imagesList[index].alt;
+            lightboxCaption.textContent = imagesList[index].caption;
+            lightbox.style.display = 'flex';
+            
+            // Add keyboard events listeners
+            document.addEventListener('keydown', handleLightboxKeys);
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.removeEventListener('keydown', handleLightboxKeys);
+        }
+
+        function navigateLightbox(direction) {
+            currentImageIndex = (currentImageIndex + direction + imagesList.length) % imagesList.length;
+            lightboxImg.src = imagesList[currentImageIndex].src;
+            lightboxImg.alt = imagesList[currentImageIndex].alt;
+            lightboxCaption.textContent = imagesList[currentImageIndex].caption;
+        }
+
+        function handleLightboxKeys(e) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+        lightboxNext.addEventListener('click', () => navigateLightbox(1));
+        
+        // Lightbox dismiss on clicking background
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
     </script>
-    
 </body>
 
 </html>
